@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req,res) => {
-    res.send('Olá autenticação !');
+    res.send('Olá autenticação 2.0 !');
 });
 
 app.listen(PORT, () =>{
