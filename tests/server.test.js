@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const request = require('supertest');
 const app = require('../src/app');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'segredoSuperSecreto';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 describe('Testando GET /', () => {
   it('deve retornar Olá mundo ! com token válido', async () => {
