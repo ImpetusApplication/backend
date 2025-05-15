@@ -35,4 +35,3 @@ jobs:
             with:
                 push: true
                 tags: marlosemanuel/backend-impetus:latest
-

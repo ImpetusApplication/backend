@@ -1,0 +1,38 @@
+name: Testes CI
+
+on:
+    push:
+      branches: [dev, main]
+    pull_request:
+      branches: [dev, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASS: ${{ secrets.DB_PASS }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+        -   
+            name: Checkout do codigo
+            uses: actions/checkout@v4
+
+        -
+            name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v4
+            with:
+                node-version: ${{ matrix.node-version }}
+                cache: 'npm'
+                
+        - run: npm install
+        - run: npm test
