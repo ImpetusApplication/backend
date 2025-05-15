@@ -26,6 +26,10 @@ class UserRepository {
         return user;
     }
 
+    async findByEmail(email) {
+        return await User.findOne({ where: { email } });
+    }
+
     // Delete um usuario por ID
     async delete(id){
         const user = await this.findById(id);
