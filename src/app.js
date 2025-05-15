@@ -16,7 +16,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
+      url: 'https://backend-production-9ab9.up.railway.app/',
     },
   ],
   components: {
@@ -65,7 +65,11 @@ const options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/users', userRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Acesse /docs para ler a documentação');
+});
 
 module.exports = app;
