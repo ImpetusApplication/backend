@@ -2,15 +2,16 @@ const UserService = require('../service/UserService');
 const UserMapper = require('../mapper/UsuarioMapper');
 
 class UserController {
-
-    async createUser(req,res){
-        try{
-            const user = await UserService.createUser(req.body);
-            return res.status(201).json(user);
-        } catch(err){
-            res.status(400).json({error: err.message });
-        }
+  async createUser(req, res) {
+    try {
+      const userModel = UserMapper.toUserModel(req.body);
+      const user = await UserService.createUser(userModel);
+      const userResponse = UserMapper.toUserResponse(user);
+      return res.status(201).json(userResponse);
+    } catch (err) {
+      return res.status(400).json({ error: err.message });
     }
+  }
 
   async login(req, res) {
     try {
@@ -31,18 +32,18 @@ class UserController {
       }
 
       const user = await UserService.getUser(userId);
-
+      
       if (!user) {
         return res.status(404).json({ error: 'Usuário não encontrado' });
       }
+      const response = UserMapper.toUserResponse(user);
 
-      return res.json(user);
-
+      return res.json(response);
+      
     } catch (error) {
       return res.status(500).json({ error: 'Erro interno: ' + error.message });
     }
   }
-
 }
 
 module.exports = new UserController();
