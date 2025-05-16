@@ -22,7 +22,7 @@ class UserRepository {
 
     // Busca um usuario por ID
     async findById(id){
-        const user = await User.findById(id);
+        const user = await User.findByPk(id);
         return user;
     }
 

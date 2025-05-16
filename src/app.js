@@ -1,12 +1,17 @@
 const express = require('express');
 const userRoutes = require('./routes/userRoutes');
 const autenticador = require('./middleware/authMiddleware');
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
 
 const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Bem Vindo a Minha API');
+});
+
 app.use(express.json());
 
+<<<<<<< HEAD
+=======
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
@@ -66,6 +71,7 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+>>>>>>> 1.0.0
 app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
