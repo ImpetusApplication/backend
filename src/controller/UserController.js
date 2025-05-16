@@ -1,15 +1,16 @@
 const UserService = require('../service/UserService');
+const UserMapper = require('../mapper/UsuarioMapper');
 
 class UserController {
 
-  async createUser(req, res) {
-    try {
-      const user = await UserService.createUser(req.body);
-      return res.status(201).json(user);
-    } catch (err) {
-      return res.status(400).json({ error: err.message });
+    async createUser(req,res){
+        try{
+            const user = await UserService.createUser(req.body);
+            return res.status(201).json(user);
+        } catch(err){
+            res.status(400).json({error: err.message });
+        }
     }
-  }
 
   async login(req, res) {
     try {
