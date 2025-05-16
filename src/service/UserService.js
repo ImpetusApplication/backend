@@ -38,6 +38,11 @@ class UserService{
 
         return {user, token};
     }
+
+    async getUser(id){
+        const user = UserRepository.findById(id);
+        return user;
+    }
 }
 
 module.exports = new UserService();
