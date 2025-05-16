@@ -22,6 +22,11 @@ class UserService{
     }
 
     async login(email, password){
+
+        if(!email || !password){
+            throw new Error('Email e senha são obrigatórios.');
+        }
+
         const user = await UserRepository.findByEmail(email);
 
         if(!user){
@@ -31,7 +36,7 @@ class UserService{
         const valid = await bcrypt.compare(password, user.password);
 
         if(!valid){
-            throw new Error('email ou senha invalido !');
+            throw new Error('Email ou senha inválidos.');
         }
 
         const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
@@ -41,6 +46,9 @@ class UserService{
 
     async getUser(id){
         const user = UserRepository.findById(id);
+        if(!user){
+            throw new Error('Usuário não encontrado');
+        }
         return user;
     }
 }

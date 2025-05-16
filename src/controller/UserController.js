@@ -15,11 +15,24 @@ class UserController {
 
   async login(req, res) {
     try {
+
       const { email, password } = req.body;
-      const { user, token } = await UserService.login(email, password);
+
+      if(!email || !password){
+        return res.status(400).json({
+          error: "Email ou senha são obrigatorios"
+        });
+      }
+      const { token } = await UserService.login(email, password);
       return res.json({ token });
     } catch (err) {
-      return res.status(401).json({ error: err.message });
+      console.error('Erro ao fazer login:', err.message);
+
+      if (err.message.includes('não encontrado') || err.message.includes('inválidos')) {
+        return res.status(401).json({ error: err.message });
+      }
+
+      return res.status(500).json({ error: 'Error interno no servidor.' })
     }
   }
 
