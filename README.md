@@ -47,8 +47,8 @@ Autentica um usuário e retorna um **token JWT** para autenticação nas demais 
 
 ```json
 {
-  "email": "marlosemanuel@gmail.com",
-  "password": "marlos2818"
+  "email": "test@gmail.com",
+  "password": "test123"
 }
 ```
 
