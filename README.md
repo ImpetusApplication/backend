@@ -99,7 +99,7 @@ Endpoint responsável pelo cadastro de um novo usuário.
 
 ### 3. Exibir Usuario
 
-#### GET `/users/me`
+#### GET `/users/me` => ROTA PROTEGIDA
 
 este enpoint retorna os dados do usuario.
 
