@@ -32,7 +32,7 @@ class UserController {
         return res.status(401).json({ error: err.message });
       }
 
-      return res.status(500).json({ error: 'Error interno no servidor.' })
+      return res.status(500).json({ error: 'Error interno no servidor.' });
     }
   }
 
