@@ -17,7 +17,7 @@ docker pull marlosemanuel/backend-impetus
 2. Execute o container usando o comando:
 
 ```bash
-docker run -p 3000:<porta_container> marlosemanuel/backend-impetus
+docker run -p <porta_local>:3000 marlosemanuel/backend-impetus
 ```
 
 > **Observação:**  
