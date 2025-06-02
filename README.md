@@ -21,7 +21,7 @@ docker run -p <porta_local>:3000 marlosemanuel/backend-impetus
 ```
 
 > **Observação:**  
-> Substitua `<porta_local>` pela porta que deseja expor na sua máquina local, e `<porta_container>` pela porta que a aplicação usa dentro do container (geralmente 3000 ou 8080 — confirme no projeto).
+> Substitua `<porta_local>` pela porta que deseja expor na sua máquina local.
 
 ---
 
