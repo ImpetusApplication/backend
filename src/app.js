@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoutes = require('./routes/userRoutes');
+const grupoRoutes = require('./routes/grupoRoutes')
 const autenticador = require('./middleware/authMiddleware');
 const path = require('path');
 const app = express();
@@ -28,5 +29,5 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.use('/users', userRoutes);
-
+app.use('/grupos', grupoRoutes)
 module.exports = app;

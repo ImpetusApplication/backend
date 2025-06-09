@@ -57,6 +57,8 @@ class UserController {
       return res.status(500).json({ error: 'Erro interno: ' + error.message });
     }
   }
+
+  
 }
 
 module.exports = new UserController();

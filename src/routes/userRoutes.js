@@ -7,4 +7,4 @@ router.post('/login', (req, res) => UserController.login(req, res));
 router.post('/', (req, res) => UserController.createUser(req, res));
 router.get('/me', authMiddleware, (req, res) => UserController.getUserIdFromToken(req, res));
 
-module.exports = router;
+module.exports = router;    
