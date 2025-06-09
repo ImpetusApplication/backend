@@ -39,6 +39,16 @@ class UserRepository {
         await user.destroy();
         return true;
     }
+
+    async verificar(id){
+        const user = await this.findById(id);
+        if(!user){
+            return false;
+        }
+        await user.update({isverificad: true});
+
+        return true;
+    }
 }
 
 module.exports = new UserRepository();

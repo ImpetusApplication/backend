@@ -23,6 +23,10 @@ const User = sequelize.define('User', {
   birthdate: {
     type: DataTypes.DATE,
   },
+  isverificad: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
 }, {
   tableName: 'users',
   timestamps: true
