@@ -57,6 +57,33 @@ class UserController {
       return res.status(500).json({ error: 'Erro interno: ' + error.message });
     }
   }
+
+  async verificar(req, res) {
+    const userId = req.user?.id;
+    const { codigoEnviado } = req.body;
+
+    if (!codigoEnviado) {
+        return res.status(400).json({ error: 'Usuário e código de verificação são obrigatórios.' });
+    }
+
+    try {
+        const resultado = await UserService.verificar(userId, codigoEnviado);  // Agora passando userId correto
+        return res.json(resultado);
+    } catch (error) {
+        console.error('Erro ao verificar o código:', error.message);
+        return res.status(400).json({ error: error.message });
+    }
+}
+
+  async enviarCodigo(req,res){
+    const userId = req.user?.id;
+    const user = await UserService.getUser(userId);
+
+    UserService.enviaEmailsalvaRedis(user)
+
+    res.status(200).json({mensagem: "código enviado com sucesso !!"});
+  }
+
 }
 
 module.exports = new UserController();
