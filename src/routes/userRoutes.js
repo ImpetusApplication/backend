@@ -15,4 +15,4 @@ router.get('/verify', authMiddleware, verifyUserVerified, (req, res) => {
   return res.json({ message: 'Usuário autenticado e verificado com sucesso!' });
 });
 
-module.exports = router;
+module.exports = router;    

@@ -57,7 +57,6 @@ class UserController {
       return res.status(500).json({ error: 'Erro interno: ' + error.message });
     }
   }
-
   async verificar(req, res) {
     const userId = req.user?.id;
     const { codigoEnviado } = req.body;
@@ -83,7 +82,6 @@ class UserController {
 
     res.status(200).json({mensagem: "código enviado com sucesso !!"});
   }
-
 }
 
 module.exports = new UserController();
