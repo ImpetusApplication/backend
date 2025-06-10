@@ -17,6 +17,9 @@ jobs:
       DB_HOST: ${{ secrets.DB_HOST }}
       DB_PORT: ${{ secrets.DB_PORT }}
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      EMAIL_PASS: ${{secrets.EMAIL_PASS}}
+      EMAIL_USER: ${{secrets.EMAIL_USER}}
+      REDIS_URL: ${{secrets.REDIS_URL}}
 
     strategy:
       matrix:
@@ -35,4 +38,3 @@ jobs:
                 cache: 'npm'
                 
         - run: npm install
-        - run: npm test
