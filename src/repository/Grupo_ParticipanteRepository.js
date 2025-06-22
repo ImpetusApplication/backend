@@ -17,14 +17,14 @@ class Grupo_ParticipanteRepository {
     try {
       const query = `
       SELECT 
-        gp.isOwner, 
-        gp.isAdmin,
+        gp."isOwner", 
+        gp."isAdmin",
         u.id, 
-        u.nome, 
+        u.name, 
         u.email
-      FROM grupo_participantes gp
-      JOIN users u ON gp.userId = u.id
-      WHERE gp.grupoId = grupoId
+      FROM "grupo_participante" gp
+      JOIN "users" u ON gp."userId" = u.id
+      WHERE gp."grupoId" = :grupoId
     `;
 
       const [result] = await sequelize.query(query, {
