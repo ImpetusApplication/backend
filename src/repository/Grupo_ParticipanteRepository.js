@@ -22,7 +22,7 @@ class Grupo_ParticipanteRepository {
         u.id, 
         u.name, 
         u.email
-      FROM "grupo_participante" gp
+      FROM "grupo_participantes" gp
       JOIN "users" u ON gp."userId" = u.id
       WHERE gp."grupoId" = :grupoId
     `;
