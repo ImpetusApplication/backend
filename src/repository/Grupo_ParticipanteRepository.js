@@ -1,4 +1,5 @@
 const Grupo_Participante = require("../model/Grupo_Participante");
+const sequelize = require("../config/db");
 
 class Grupo_ParticipanteRepository {
   // Adiciona um participante a um grupo
