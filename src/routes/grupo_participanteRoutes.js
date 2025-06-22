@@ -8,7 +8,7 @@ router.post("/:grupoId/:userId", authMiddleware, (req, res) =>
 );
 
 router.get("/:grupoId", authMiddleware, (req, res) =>
-  Grupo_ParticipanteController.createGrupo_Participante(req, res)
+  Grupo_ParticipanteController.getAllGrupoParticipantes(req, res)
 );
 
 
