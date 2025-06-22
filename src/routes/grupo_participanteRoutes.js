@@ -7,5 +7,9 @@ router.post("/:grupoId/:userId", authMiddleware, (req, res) =>
   Grupo_ParticipanteController.createGrupo_Participante(req, res)
 );
 
+router.get("/:grupoId", authMiddleware, (req, res) =>
+  Grupo_ParticipanteController.createGrupo_Participante(req, res)
+);
+
 
 module.exports = router;
