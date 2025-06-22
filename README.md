@@ -121,3 +121,57 @@ este enpoint retorna os dados do usuario.
 | 500    | Erro interno do servidor.         |
 
 ---
+
+### 4. adicionar usuário a um grupo
+
+#### POST `/grupos_participantes/:grupoId/:UserId`
+
+Endpoint responsável pela adição de um usuário a um grupo.
+
+**Apenas passar os ids necessários pela url**
+
+- **Request Body:**  
+  **
+
+```json
+```
+
+- **Respostas possíveis:**
+
+| Código | Descrição                                                                  |
+| ------ | -------------------------------------------------------------------------- |
+| 201    | Usuário adicionado ao grupo com sucesso.                                   |
+| 400    | Dados inválidos: `grupoId` ou `userId` ausentes ou mal formatados.         |
+| 404    | Grupo ou usuário não encontrado (caso implemente essa verificação).        |
+| 409    | Usuário já faz parte do grupo (caso implemente essa verificação opcional). |
+| 500    | Erro interno do servidor.                                                  |
+
+---
+
+### 4. adicionar usuário a um grupo
+
+#### GET `/grupos_participantes/:grupoId/`
+
+Endpoint responsável por buscar usuários de um grupo.
+
+**Apenas passar os ids necessários pela url**
+
+- **Request Body:**  
+  **
+
+```json
+```
+
+- **Respostas possíveis:**
+
+| Código | Descrição                                                     |
+| ------ | ------------------------------------------------------------- |
+| 200    | Lista de participantes retornada com sucesso.                 |
+| 400    | Requisição inválida (ex: `grupoId` ausente ou mal formatado). |
+| 404    | Grupo não encontrado.                                         |
+| 500    | Erro interno no servidor.                                     |
+
+---
+
+
+
