@@ -22,9 +22,9 @@ class Grupo_ParticipanteRepository {
         u.id, 
         u.nome, 
         u.email
-      FROM Grupo_Participante gp
+      FROM grupo_participantes gp
       JOIN users u ON gp.userId = u.id
-      WHERE gp.grupoId = :grupoId
+      WHERE gp.grupoId = grupoId
     `;
 
       const [result] = await sequelize.query(query, {
