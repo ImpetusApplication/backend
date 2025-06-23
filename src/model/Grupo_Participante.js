@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
 const Grupo_Participante = sequelize.define(
-  "grupo_participante",
+  "grupo_participantes",
   {
     id: {
       type: DataTypes.INTEGER,
