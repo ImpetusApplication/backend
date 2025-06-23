@@ -148,7 +148,7 @@ Endpoint responsável pela adição de um usuário a um grupo.
 
 ---
 
-### 4. adicionar usuário a um grupo
+### 5. buscar usuarios de um grupo
 
 #### GET `/grupos_participantes/:grupoId/`
 
@@ -169,6 +169,84 @@ Endpoint responsável por buscar usuários de um grupo.
 | 200    | Lista de participantes retornada com sucesso.                 |
 | 400    | Requisição inválida (ex: `grupoId` ausente ou mal formatado). |
 | 404    | Grupo não encontrado.                                         |
+| 500    | Erro interno no servidor.                                     |
+
+---
+
+### 6. criar um grupo
+
+#### POST `/grupos`
+
+Endpoint responsável por criar um grupo.
+
+- **Request Body:**  
+  *(Definir os campos obrigatórios para cadastro, exemplo:)*
+
+```json
+{
+    "nome":"testeando",
+    "descricao":"ola",
+    "ownerId": "3"
+}
+```
+
+- **Respostas possíveis:**
+
+| Código | Descrição                                                     |
+| ------ | ------------------------------------------------------------- |
+| 200    | json com nome do grupo.                 |
+| 400    | Requisição inválida e o a mensagem de erro. |
+| 404    | Rota nao encontrada.                                         |
+| 500    | Erro interno no servidor.                                     |
+
+---
+
+### 7. deletar um grupo
+
+#### DELETE `/grupos`
+
+Endpoint responsável por deletar um grupo.
+
+- **Request Body:**  
+  *apenas passar o id pela url*
+
+```json```
+
+- **Respostas possíveis:**
+
+| Código | Descrição                                                     |
+| ------ | ------------------------------------------------------------- |
+| 200    | Grupo deletado com sucesso.                 |
+| 400    | Requisição inválida e o a mensagem de erro. |
+| 404    | Rota nao encontrada.                                         |
+| 500    | Erro interno no servidor.                                     |
+
+---
+
+### 8. editar um grupo
+
+#### PUT `/grupos`
+
+Endpoint responsável por deletar um grupo.
+
+- **Request Body:**  
+  *(Definir os campos obrigatórios para cadastro, exemplo:) e passar id do grupo a ser editado pela url*
+
+```json
+{
+    "novoNome" : "testando edição",
+    "novaDescricao" : "edicao ta funcionando"
+}
+
+```
+
+- **Respostas possíveis:**
+
+| Código | Descrição                                                     |
+| ------ | ------------------------------------------------------------- |
+| 200    | Grupo editado com sucesso.                 |
+| 400    | Requisição inválida e o a mensagem de erro. |
+| 404    | Rota nao encontrada.                                         |
 | 500    | Erro interno no servidor.                                     |
 
 ---
