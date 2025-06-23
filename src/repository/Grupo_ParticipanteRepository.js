@@ -27,7 +27,7 @@ class Grupo_ParticipanteRepository {
       WHERE gp."grupoId" = :grupoId
     `;
 
-      const [result] = await sequelize.query(query, {
+      const result = await sequelize.query(query, {
         replacements: { grupoId },
         type: sequelize.QueryTypes.SELECT,
       });
